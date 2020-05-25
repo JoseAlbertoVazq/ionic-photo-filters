@@ -22,17 +22,17 @@ export class HomePage {
     { name: 'Sepia', value: 'sepia' },
     { name: 'Blue Monotone', value: 'blue_monotone' },
     { name: 'Violent Tomato', value: 'violent_tomato' },
-    // { name: 'Grey', value: 'greyscale' },
-    // { name: 'Brightness', value: 'brightness' },
-    // { name: 'Saturation', value: 'saturation' },
-    // { name: 'Contrast', value: 'contrast' },
-    // { name: 'Hue', value: 'hue' },
-    // { name: 'Cookie', value: 'cookie' },
-    // { name: 'Vintage', value: 'vintage' },
-    // { name: 'Koda', value: 'koda' },
-    // { name: 'Technicolor', value: 'technicolor' },
-    // { name: 'Polaroid', value: 'polaroid' },
-    // { name: 'Bgr', value: 'bgr' }
+    { name: 'Grey', value: 'greyscale' },
+    { name: 'Brightness', value: 'brightness' },
+    { name: 'Saturation', value: 'saturation' },
+    { name: 'Contrast', value: 'contrast' },
+    { name: 'Hue', value: 'hue' },
+    { name: 'Cookie', value: 'cookie' },
+    { name: 'Vintage', value: 'vintage' },
+    { name: 'Koda', value: 'koda' },
+    { name: 'Technicolor', value: 'technicolor' },
+    { name: 'Polaroid', value: 'polaroid' },
+    { name: 'Bgr', value: 'bgr' }
   ];
   constructor() { }
   async selectImage() {
