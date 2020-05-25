@@ -1,20 +1,34 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Photo Filters
     </ion-title>
+    <ion-buttons slot="end" *ngIf="image">
+      <ion-button (click)="saveImage()">Save</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-button expand="full" (click)="selectImage()">Select Image</ion-button>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <!-- Big preview of selected filter -->
+  <div id="preview" *ngIf="image">
+    <web-photo-filter [class.no-original]="selectedFilter != ''" [class.only-original]="selectedFilter == ''"
+      [src]="image" keep="true" [filter]="selectedFilter" (filterLoad)="imageLoaded($event)">
+    </web-photo-filter>
   </div>
+
+  <!-- Slides with thumbnail preview of all filters -->
+  <ion-slides [options]="slideOpts" *ngIf="image">
+
+    <ion-slide *ngFor="let opts of filterOptions; let i = index;" tappable (click)="filter(i)">
+      <ion-text [class.selected]="i == selectedIndex">{{ opts.name }}</ion-text>
+      <div id="preview">
+        <web-photo-filter [class.no-original]="i > 0" [src]="image" keep="false" [filter]="opts.value">
+        </web-photo-filter>
+      </div>
+    </ion-slide>
+
+  </ion-slides>
 </ion-content>
